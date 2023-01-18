@@ -9,11 +9,15 @@
   <body>
     <div id='home'>
     	<div id='jokeTypes'>
-    		<input type="checkbox" id="knockKnock">Knock Knock</input>
-    		<input type="checkbox" id="pun">Puns</input>
-    		<input type="checkbox" id="themedJokes">Themed Jokes</input>
-    		<input type="checkbox" id="compScience">Computer Science Jokes</input>
-    		<input type="checkbox" id="random">Random</input>
+    		<input type="checkbox" id="knockKnock" value='0'>Knock Knock</input>
+    		<input type="checkbox" id="pun" value='0'>Puns</input>
+    		<input type="checkbox" id="themedJokes" value='0'>Themed Jokes</input>
+    		<input type="checkbox" id="compScience" value='0'>Computer Science Jokes</input>
+    		<input type="checkbox" id="random" value='0'>Random</input>
+    	</div>
+    	<div id="jokeScreen">
+    		<p id="jokeText"></p>
+    		<button id="responseButton" onClick="punchline()"></button>
     	</div>
     </div>
     <script src="main.js"></script>

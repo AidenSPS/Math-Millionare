@@ -1,2 +1,2 @@
-# Shopping-List
-This is a user added shopping list. 
+# Joke-Book
+This is a joke book to give anyone a fun time. 
