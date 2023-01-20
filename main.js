@@ -15,7 +15,7 @@ var gradeFive = [[["How would you express the sum of 508 and x?"],["508 + x"]],[
 
 var gradeSix = [[["I have 3 green balls, I then put it in a bag with 5 purple balls. What is the ratio between GREEN BALLS and PURPLE BALLS? Write in (x):(y)"],["3:5"]],[["What are the whole number factors of 50? Write factors within commas (ie: 10 = 1,2,5,10)"],["1,2,5,10,25,50"]],[["what is 50% of 5000"],["2500"]],[["Compute: (4/2)/(2)"],["1"]],[["What shape does a 45/45/45 represent?"],["Equalateral Triangle"]]];
 
-var gradeSeven = [[[],[]],[[],[]],[[],[]],[[],[]],[[],[]]];
+var gradeSeven = [[["Compute: f(x) = 1/2x + 10. What is f(5)"],["12.5"]],[["What is 3/4 as a percent?"],["75%"]],[[],[]],[[],[]],[[],[]]];
 
 var preAlgebra = [[[],[]],[[],[]],[[],[]],[[],[]],[[],[]]];
 
