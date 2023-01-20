@@ -13,7 +13,7 @@ var gradeFour = [[["What is 6/10 as a decimal? put format in (x or 0).(y)"],["0.
 
 var gradeFive = [[["How would you express the sum of 508 and x?"],["508 + x"]],[["What is 14/7 as a decimal? Use (x or 0).(y) format."],["2.0"]],[["If you lived in Portland, Oregon and you had a friend who lived in Springfield, Massachusetts. If it is 8am in Portland, what time is it in Springfield?"],["11 AM"]],[["Compute: 3^2 (3 squared)."],["9"]],[["What is the missing base of the following number? 1000"],["10"]]];
 
-var gradeSix = [[["I have 3 green balls, I then put it in a bag with 5 purple balls. What is the ratio between GREEN BALLS and PURPLE BALLS? Write in (x):(y)"],["3:5"]],[["What are the whole number factors of 50? Write factors within commas (ie: 10 = 1,2,5,10)"],["1,2,5,10,25,50"]],[["Compute: 5 * 1000"],["5000"]],[["Compute: (4/2)/(2)"],["1"]],[["What shape does a 45/45/45 represent?"],["Equalateral Triangle"]]];
+var gradeSix = [[["I have 3 green balls, I then put it in a bag with 5 purple balls. What is the ratio between GREEN BALLS and PURPLE BALLS? Write in (x):(y)"],["3:5"]],[["What are the whole number factors of 50? Write factors within commas (ie: 10 = 1,2,5,10)"],["1,2,5,10,25,50"]],[["what is 50% of 5000"],["2500"]],[["Compute: (4/2)/(2)"],["1"]],[["What shape does a 45/45/45 represent?"],["Equalateral Triangle"]]];
 
 var gradeSeven = [[[],[]],[[],[]],[[],[]],[[],[]],[[],[]]];
 
