@@ -1,6 +1,6 @@
 //Global Variables
 var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
-var questionCounter = 0; //Hidden counter that will be translated to dollars to represent cashCounter
+var totalQuestion = 13; 
 
 //Question Arrays (needed for randomization)
 var gradeOne = [[["I have 5 cookies, I ate 2, How many do I have left?"],["3"]],[["I had 10 dollars, I was given 5 in allowance, how many dollars do I have?"],["15"]],[["What is 5 + 5?"],["10"]],[["What is 5-5?"],["0"]],[["When creating this the time is 10:50AM, I spent fifty minutes and I will spend an hour and a half making this game, how much time will I spend making this game?"],["40 Minutes"]]]; //[Main] -->[Ranomized Question] -->[Question] --> [Answer]
@@ -29,8 +29,19 @@ var preCalculus = [[["Compute: 5/0"],["undefined"]],[["What is the formula for a
 
 var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute: 5 % 5 =?"],["0"]],[["I have a polynomial, x^10 + x = f(x); How many zeros are in my function?"],["10"]],[["Compute from Binary to Integer: 11101001 + 11111011? You may use a binary calculator if you are stuck"],["484"]],[["Compute from Integer to Binary: 40 - 25 = ?"],["1111"]]];
 
-//Functions and Local Variables
 
+//DOM Variables 
+
+//Functions and Local Variables
+function askQuestions(){
+	for(var questionCounter = 1; questions <= totalQuestions; questionCounter++){
+
+	}
+}
+
+function refreshPage(){
+	location.reload(); 
+}
 
 
 
