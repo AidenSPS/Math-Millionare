@@ -27,12 +27,7 @@ var algebra2 = [[["Solve the polynomial: y = 10x^3 - 5x^2 - 3x + 486"],[/* Solve
 
 var preCalculus = [[["Compute: 5/0"],["undefined"]],[["What is the formula for any and all power functions?"],["y = kx^p"]],[["Find the hole in the following function: (7x + 3)(x-8)/(x-8)"],["8"]],[["If I have a trigonometic function of f(x) = sin(x), f'(x) would equal? Put f'(x) before your answer"],["f'(x) = sin^-1(x)"]],[["What is the amplitude of f(x) if the local minimum is 12 and the local minimum is 2 with a domain restriction of -5 <= x <= 15?"],["6"]]];
 
-var statistics = [[[],[]],[[],[]],[[],[]],[[],[]],[[],[]]];
-
-var bonus1 = [[["On a real xy plane, does y = function(x)?"],["Yes"]],[["Compute: 5 % 5 =?"],["0"]],[["I have a polynomial, x^10 + x = f(x); How many zeros are in my function?"],["10"]],[["Compute from Binary to Integer: 11101001 + 11111011"],["484"]],[["Compute from Integer to Binary: 40 - 25 = ?"],["1111"]]];
-
-var bonus2 = [[[],[]],[[],[]],[[],[]],[[],[]],[[],[]]];
-
+var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute: 5 % 5 =?"],["0"]],[["I have a polynomial, x^10 + x = f(x); How many zeros are in my function?"],["10"]],[["Compute from Binary to Integer: 11101001 + 11111011? You may use a binary calculator if you are stuck"],["484"]],[["Compute from Integer to Binary: 40 - 25 = ?"],["1111"]]];
 
 //Functions and Local Variables
 
