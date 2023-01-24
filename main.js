@@ -45,7 +45,7 @@ function yesPlay(){
 	answerBox.id = "answer";
 	submitButton.id = "submit";
 	submitButton.innerText = "Submit Answer";
-	submitButton.onClick = respondQuestion();
+	submitButton.setAttribute('onClick','respondQuestion()');
 	document.body.appendChild(answerBox);
 	document.body.appendChild(submitButton);
 	askQuestion();
@@ -67,8 +67,7 @@ function askQuestion(){ //Asking a question and responding to it are different f
 
 
 function respondQuestion(){
-	alert("Up to onClick");
-	console.log("Button.onClick works now");
+	
 }
 
 
