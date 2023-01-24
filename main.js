@@ -1,6 +1,7 @@
 //Global Variables
-var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
+var cashCounter = "$0"; //Displayed, going to have table which with correct questions highlighted
 var totalQuestions = 13; 
+var questionCounter = 0;
 
 //Question Arrays (needed for randomization)
 var gradeOne = [[["I have 5 cookies, I ate 2, How many do I have left?"],["3"]],[["I had 10 dollars, I was given 5 in allowance, how many dollars do I have?"],["15"]],[["What is 5 + 5?"],["10"]],[["What is 5-5?"],["0"]],[["When creating this the time is 10:50AM, I spent fifty minutes and I will spend an hour and a half making this game, how much time will I spend making this game?"],["40 Minutes"]]]; //[Main] -->[Ranomized Question] -->[Question] --> [Answer]
@@ -29,25 +30,28 @@ var preCalculus = [[["Compute: 5/0"],["undefined"]],[["What is the formula for a
 
 var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute: 5 % 5 =?"],["0"]],[["I have a polynomial, x^10 + x = f(x); How many zeros are in my function?"],["10"]],[["Compute from Binary to Integer: 11101001 + 11111011? You may use a binary calculator if you are stuck"],["484"]],[["Compute from Integer to Binary: 40 - 25 = ?"],["1111"]]];
 
+var randomQuestion = Math.floor(Math.random()* gradeOne.length) +1;
+//DOM Variables 
 var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
-//DOM Variables 
-
+var questionDisplay = document.getElementById("questionDisplay");
 //Functions and Local Variables
-function askQuestions(){
 
-	for(var questionCounter = 0; questionCounter <= totalQuestions; questionCounter++){
-		noButton.remove();
-		yesButton.remove();
-		let question = [gradeOne,gradeTwo,gradeThree,gradeFour,gradeFive,gradeSix,gradeSeven,preAlgebra,algebra1,geometry,algebra2,preCalculus,bonus]
-	}
+function yesPlay(){
+	noButton.remove();
+	yesButton.remove();
+	askQuestion();
 }
 
-function refreshPage(){
+function noPlay(){
 	location.reload(); 
 }
 
-
+function askQuestion(){ //Asking a question and responding to it are different functions for notice. 
+	let question = [gradeOne, gradeTwo, gradeThree, gradeFour, gradeFive, gradeSix, gradeSeven, preAlgebra, algebra1, geometry, algebra2, preCalculus, bonus];
+	//NOTE: This is a 4 dimensional array
+	questionDisplay.innerText = question[questionCounter][randomQuestion][0];
+}
 
 
 
