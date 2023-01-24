@@ -30,7 +30,7 @@ var preCalculus = [[["Compute: 5/0"],["undefined"]],[["What is the formula for a
 
 var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute: 5 % 5 =?"],["0"]],[["I have a polynomial, x^10 + x = f(x); How many zeros are in my function?"],["10"]],[["Compute from Binary to Integer: 11101001 + 11111011? You may use a binary calculator if you are stuck"],["484"]],[["Compute from Integer to Binary: 40 - 25 = ?"],["1111"]]];
 
-var randomQuestion = Math.floor(Math.random()* gradeOne.length) +1;
+var randomQuestion = Math.floor(Math.random()* 5);
 //DOM Variables 
 var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
@@ -40,6 +40,14 @@ var questionDisplay = document.getElementById("questionDisplay");
 function yesPlay(){
 	noButton.remove();
 	yesButton.remove();
+	let answerBox = document.createElement("input");
+	let submitButton = document.createElement("button");
+	answerBox.id = "answer";
+	submitButton.id = "submit";
+	submitButton.innerText = "Submit Answer";
+	submitButton.onClick = respondQuestion();
+	document.body.appendChild(answerBox);
+	document.body.appendChild(submitButton);
 	askQuestion();
 }
 
@@ -50,11 +58,18 @@ function noPlay(){
 function askQuestion(){ //Asking a question and responding to it are different functions for notice. 
 	let question = [gradeOne, gradeTwo, gradeThree, gradeFour, gradeFive, gradeSix, gradeSeven, preAlgebra, algebra1, geometry, algebra2, preCalculus, bonus];
 	//NOTE: This is a 4 dimensional array
-	questionDisplay.innerText = question[questionCounter][randomQuestion][0];
+	let consoleDisplay = question[questionCounter /* 0 for testing */][randomQuestion][0];
+	questionDisplay.innerText = consoleDisplay
+	console.log(questionCounter);
+	console.log(randomQuestion);
+	console.log(consoleDisplay);
 }
 
 
-
+function respondQuestion(){
+	alert("Up to onClick");
+	console.log("Button.onClick works now");
+}
 
 
 
