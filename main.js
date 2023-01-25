@@ -2,6 +2,8 @@
 var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
 var totalQuestions = 13; 
 var questionCounter = 0;
+var cashValue = [100,200,500,1000,2000,4000,8000,32000,64000,125000,250000,500000,10000000]
+var saveCash = 0;
 
 //Question Arrays (needed for randomization)
 var gradeOne = [[["I have 5 cookies, I ate 2, How many do I have left?"],["3"]],[["I had 10 dollars, I was given 5 in allowance, how many dollars do I have?"],["15"]],[["What is 5 + 5?"],["10"]],[["What is 5-5?"],["0"]],[["When creating this the time is 10:50AM, I spent fifty minutes and I will spend an hour and a half making this game, how much time will I spend making this game?"],["40 Minutes"]]]; //[Main] -->[Ranomized Question] -->[Question] --> [Answer]
@@ -41,8 +43,8 @@ function yesPlay(){
 	yesButton.remove();
 	let answerBox = document.createElement("input");
 	let submitButton = document.createElement("button");
-	answerBox.id = "answer";
-	submitButton.id = "submit";
+	answerBox.setAttribute("id","answer");
+	submitButton.setAttribute("id",'submit')
 	submitButton.innerText = "Submit Answer";
 	submitButton.setAttribute('onClick','respondQuestion()');
 	document.body.appendChild(answerBox);
@@ -71,9 +73,25 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 	let answer = question[questionCounter][randomQuestion][1];
 	console.log(answer);
 	if(response == answer){
+		cashCounter = cashValue[questionCounter]
+		switch(cashCounter){ //To check if the cashCounter value has aligned with the saveCash benchmarks listed in switch
+		case 1000:
+			saveCash = 1000
+		case 32000:
+			saveCash = 32000
+		case 64000:
+			saveCash = 64000
+		default:
+			saveCash = 0;
+			console.log("Error in the switch of cashCounter");
+			break;
+	}
 		questionDisplay.innerText = "Correct for $"+cashCounter+" dollars";
 		questionCounter++
-		cashCounter //Need to solve a formula for this value.
+	}
+
+	else {
+		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but we have benchmarked your cash at... $"+saveCash;
 	}
 }
 
