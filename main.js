@@ -56,6 +56,7 @@ function yesPlay(){
 	askQuestion();
 }
 
+
 function noPlay(){
 	location.reload(); 
 }
