@@ -1,9 +1,9 @@
 //Global variables
 var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
-var totalQuestions = 13; 
-var questionCounter = 0;
-var cashValue = [100,200,500,1000,2000,4000,8000,32000,64000,125000,250000,500000,10000000]
-var saveCash = 0;
+var totalQuestions = 13; //The ammount of questions that are in the game
+var questionCounter = 0; //the current question you are on
+var cashValue = [100,200,500,1000,2000,4000,8000,32000,64000,125000,250000,500000,10000000] //The array that listed cash values, index + 1 is correlated to each question. 
+var saveCash = 0; //Cash save benchmark, labled as a psuedo high score. 
 
 //Question Arrays (needed for randomization)
 var gradeOne = [[["I have 5 cookies, I ate 2, How many do I have left?"],["3"]],[["I had 10 dollars, I was given 5 in allowance, how many dollars do I have?"],["15"]],[["What is 5 + 5?"],["10"]],[["What is 5-5?"],["0"]],[["When creating this the time is 10:50AM, I spent fifty minutes and I will spend an hour and a half making this game, how much time will I spend making this game?"],["40 Minutes"]]]; //[Main] -->[Ranomized Question] -->[Question] --> [Answer]
@@ -34,7 +34,8 @@ var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute
 
 var question = [gradeOne, gradeTwo, gradeThree, gradeFour, gradeFive, gradeSix, gradeSeven, preAlgebra, algebra1, geometry, algebra2, preCalculus, bonus]; //NOTE: This is a 4 dimensional array
 
-var randomQuestion = Math.floor(Math.random()* 5);
+var randomQuestion = Math.floor(Math.random()* 5); //Problem with this is that you won't get a random number per question (so ie you would be stuck with [0][1],[1][1],[2][1], etc.)
+
 //DOM variables 
 var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
@@ -84,7 +85,6 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 			saveCash = 64000
 		default:
 			saveCash = 0;
-			console.log("Error in the switch of cashCounter");
 			break;
 	}
 		questionDisplay.innerText = "Correct for $"+cashCounter+" dollars";
@@ -97,5 +97,6 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 }
 
 
+function nextQuestion(){
 
-//DOM Scripts
+}
