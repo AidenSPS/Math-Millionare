@@ -40,6 +40,8 @@ var randomQuestion = Math.floor(Math.random()* 5); //Problem with this is that y
 var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
 var questionDisplay = document.getElementById("questionDisplay");
+
+
 //Functions and Local variables
 
 function yesPlay(){
