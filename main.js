@@ -19,7 +19,7 @@ var algebra1 = [[["Using Equation Manipulation, what does i equal when y = print
 
 var geometry = [[["Using trigonometry, find sin(60)? Round to the nearest 10th"],["−0.3"]],[["Prove why a 30/60/90 is a right triangle?"],["It has a 90 degree angle"]],[["If f(x) = 5x + 8. And f(x) is a parent function, describe the transformation: f'(x) = 5x + 10?"],["Translation of 2 units to the right"]],[["What trigonometric function is used to solve for the hypotenuse?"],["tan(x)"]],[["What are the three sides of a triangle when in relation to trigonometry called? List with commas and Capital letters (ie Fifty, Fourty, Thirty)."],["Adjacent, Opposite, Hypotenuse"]]];
 
-var algebra2 = [[["Solve the for x: y = 10x^3 - 5x^2 - 3x + 486"],[/* Solve for this on paper */]],[["What does log(10) equal?"],["1"]],[["Solve for x: y = log_10(10^x)"],["x"]],[["True or False: ln(x) and log_10(x) are the same? Answer with True or False as written here."],["False"]],[["What is the approximate value of e? Round to the nearest 10th place"],["2.7"]]];
+var algebra2 = [[["Solve the for x: y = 10x^3 - 5x^2 - 3x + 486"],[/* Solve for this on paper */]],[["What does log(10) equal?"],["1"]],[["Solve for x: y = logBASE10(10^x)"],["x"]],[["True or False: ln(x) and log_10(x) are the same? Answer with True or False as written here."],["False"]],[["What is the approximate value of e? Round to the nearest 10th place"],["2.7"]]];
 
 var preCalculus = [[["Compute: 5/0"],["undefined"]],[["What is the formula for any and all power functions?"],["y = kx^p"]],[["Find the hole in the following function: (7x + 3)(x-8)/(x-8)"],["8"]],[["If I have a trigonometic function of f(x) = sin(x), f'(x) would equal? Put f'(x) before your answer"],["f'(x) = sin^-1(x)"]],[["What is the amplitude of f(x) if the local minimum is 12 and the local minimum is 2 with a domain restriction of -5 <= x <= 15?"],["6"]]];
 
@@ -27,6 +27,8 @@ var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute
 
 //Global Variables
 var question = [gradeOne, gradeTwo, gradeThree, gradeFour, gradeFive, gradeSix, gradeSeven, preAlgebra, algebra1, geometry, algebra2, preCalculus, bonus]; 
+
+
 //NOTE: This (^) is a 4 dimensional array
 var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
 var totalQuestions = 13; //The ammount of questions that are in the game
