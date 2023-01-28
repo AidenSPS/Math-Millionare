@@ -75,7 +75,7 @@ function newRoll(){
 }
 
 function askQuestion(){ //Asking a question and responding to it are different functions for notice. 
-	let consoleDisplay = question[questionCounter][randomQuestion][0];
+	let consoleDisplay = question[questionCounter][randomQuestion][0]; //Google Console says there is a problem here
 	questionDisplay.innerText = consoleDisplay
 	console.log(questionCounter);
 	console.log(randomQuestion);
@@ -86,10 +86,10 @@ function askQuestion(){ //Asking a question and responding to it are different f
 function respondQuestion(){ //Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
-	let answer = question[questionCounter][randomQuestion][1];
+	let answer = question[questionCounter][randomQuestion][1]; //Google Console says there is a problem here (Most likely, if there is an error at line 78:64, there is most likely one here too).
 	console.log(answer);
 	if(response == answer){
-		cashCounter = cashValue[questionCounter]
+		cashCounter = cashValue[questionCounter];
 		switch(cashCounter){ //To check if the cashCounter value has aligned with the saveCash benchmarks listed in switch
 		case 1000:
 			saveCash = 1000
@@ -112,7 +112,7 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 }
 
 
-function nextQuestion(){
+function nextQuestion(){ //Function is to loop through all of the questions in "questions" array. 
 	for(var i = questionCounter; i < totalQuestions; i++){
 		askQuestion();
 		respondQuestion();
