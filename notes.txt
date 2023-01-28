@@ -1,0 +1,53 @@
+Things to try in order to fix "var randomQuestion"
+
+diceRoller()
+
+GOAL: To get a random number generator where it can store a value until something is switched true. 
+
+Ideas: flags? (To switch something true if a condition is met)
+
+Pros:
+Gets multiple random values, 
+
+Cons:
+Whenever the function is called, will always randomize values. So I cannot use that for combining arrays. 
+
+function diceRoller(){
+	let diceFlag = false; //Switches true when the question has been answered. Might need to be a global variable
+	let diceRoll = Math.floor(Math.random() * 5) + 1;
+	if(diceFlag == true){
+		diceRoller()
+	} 
+	else{
+		return diceRoll;
+	}
+}
+
+Question Array Layout
+
+var question = [G1,G2,G3,G4,G5,G6...]
+
+G1 = [["blah blach blah"],["0.6"]]
+
+question[0][1]
+
+question[0] jumps to G1
+question[0][1] is pretty much saying G1[1];
+
+question[questionCounter][randomQuestion][1];
+
+for the first question{
+	question[0][randomInt, 0-4][1];
+
+	question jumps to gradeOne
+	gradeOne[0][1]; //We will say for notes reference that randomQuestion is equal to item 0, 
+	gradeOne[0] jumps to the question
+	gradeOne[0][1] is the string of the answer 
+}
+
+so the question array's format is as such{
+	question --> 
+	gradeArrays --> 
+	question(This string is the acutal questionArray with stores the questionString and the answer to the question. This is randomized between integers 0 <= x <= 4). --> 
+	questionOrAnswer (if this value is 0, this will display the question, if this value is 1, this value will display the answer to said question);
+}

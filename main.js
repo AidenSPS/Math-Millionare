@@ -1,10 +1,3 @@
-//Global variables
-var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
-var totalQuestions = 13; //The ammount of questions that are in the game
-var questionCounter = 0; //the current question you are on
-var cashValue = [100,200,500,1000,2000,4000,8000,32000,64000,125000,250000,500000,10000000] //The array that listed cash values, index + 1 is correlated to each question. 
-var saveCash = 0; //Cash save benchmark, labled as a psuedo high score. 
-
 //Question Arrays (needed for randomization)
 var gradeOne = [[["I have 5 cookies, I ate 2, How many do I have left?"],["3"]],[["I had 10 dollars, I was given 5 in allowance, how many dollars do I have?"],["15"]],[["What is 5 + 5?"],["10"]],[["What is 5-5?"],["0"]],[["When creating this the time is 10:50AM, I spent fifty minutes and I will spend an hour and a half making this game, how much time will I spend making this game?"],["40 Minutes"]]]; //[Main] -->[Ranomized Question] -->[Question] --> [Answer]
 
@@ -26,20 +19,32 @@ var algebra1 = [[["Using Equation Manipulation, what does i equal when y = print
 
 var geometry = [[["Using trigonometry, find sin(60)? Round to the nearest 10th"],["−0.3"]],[["Prove why a 30/60/90 is a right triangle?"],["It has a 90 degree angle"]],[["If f(x) = 5x + 8. And f(x) is a parent function, describe the transformation: f'(x) = 5x + 10?"],["Translation of 2 units to the right"]],[["What trigonometric function is used to solve for the hypotenuse?"],["tan(x)"]],[["What are the three sides of a triangle when in relation to trigonometry called? List with commas and Capital letters (ie Fifty, Fourty, Thirty)."],["Adjacent, Opposite, Hypotenuse"]]];
 
-var algebra2 = [[["Solve the for x: y = 10x^3 - 5x^2 - 3x + 486"],[/* Solve for this on paper */]],[["What does log(10) equal?"],["1"]],[["Solve for x: y = log_10(10^x)"],["x"]],[["True or False: ln(x) and log_10(x) are the same? Answer with True or False as written here."],["False"]],[["What is the approximate value of e? Round to the nearest 10th place"],["2.7"]]];
+var algebra2 = [[["Solve the for x: y = 10x^3 - 5x^2 - 3x + 486"],[/* Solve for this on paper */]],[["What does log(10) equal?"],["1"]],[["Solve for x: y = logBASE10(10^x)"],["x"]],[["True or False: ln(x) and log_10(x) are the same? Answer with True or False as written here."],["False"]],[["What is the approximate value of e? Round to the nearest 10th place"],["2.7"]]];
 
 var preCalculus = [[["Compute: 5/0"],["undefined"]],[["What is the formula for any and all power functions?"],["y = kx^p"]],[["Find the hole in the following function: (7x + 3)(x-8)/(x-8)"],["8"]],[["If I have a trigonometic function of f(x) = sin(x), f'(x) would equal? Put f'(x) before your answer"],["f'(x) = sin^-1(x)"]],[["What is the amplitude of f(x) if the local minimum is 12 and the local minimum is 2 with a domain restriction of -5 <= x <= 15?"],["6"]]];
 
 var bonus = [[["On a real x-y plane, does y = function(x)?"],["Yes"]],[["Compute: 5 % 5 =?"],["0"]],[["I have a polynomial, x^10 + x = f(x); How many zeros are in my function?"],["10"]],[["Compute from Binary to Integer: 11101001 + 11111011? You may use a binary calculator if you are stuck"],["484"]],[["Compute from Integer to Binary: 40 - 25 = ?"],["1111"]]];
 
-var question = [gradeOne, gradeTwo, gradeThree, gradeFour, gradeFive, gradeSix, gradeSeven, preAlgebra, algebra1, geometry, algebra2, preCalculus, bonus]; //NOTE: This is a 4 dimensional array
+//Global Variables
+var question = [gradeOne, gradeTwo, gradeThree, gradeFour, gradeFive, gradeSix, gradeSeven, preAlgebra, algebra1, geometry, algebra2, preCalculus, bonus]; 
 
-var randomQuestion = Math.floor(Math.random()* 5); //Problem with this is that you won't get a random number per question (so ie you would be stuck with [0][1],[1][1],[2][1], etc.)
+
+//NOTE: This (^) is a 4 dimensional array
+var cashCounter = 0; //Displayed, going to have table which with correct questions highlighted
+var totalQuestions = 13; //The ammount of questions that are in the game
+var questionCounter = 0; //the current question you are on
+var cashValue = [100,200,500,1000,2000,4000,8000,32000,64000,125000,250000,500000,10000000] //The array that listed cash values, index + 1 is correlated to each question. 
+var saveCash = 0; //Cash save benchmark, labled as a psuedo high score. 
+var diceFlag = false;
+var randomQuestion = newRoll();
 
 //DOM variables 
 var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
 var questionDisplay = document.getElementById("questionDisplay");
+var nextButton = document.getElementById("next")
+
+
 //Functions and Local variables
 
 function yesPlay(){
@@ -47,21 +52,32 @@ function yesPlay(){
 	yesButton.remove();
 	let answerBox = document.createElement("input");
 	let submitButton = document.createElement("button");
+	let nextQuestion = document.createElement("button");
+	nextQuestion.setAttribute("id","next");
 	answerBox.setAttribute("id","answer");
 	submitButton.setAttribute("id",'submit')
 	submitButton.innerText = "Submit Answer";
+	nextQuestion.innerText = "Next Question";
 	submitButton.setAttribute('onClick','respondQuestion()');
+	nextQuestion.setAttribute('onClick','nextQuestion()');
 	document.body.appendChild(answerBox);
 	document.body.appendChild(submitButton);
+	document.body.appendChild(nextQuestion);
 	askQuestion();
 }
+
 
 function noPlay(){
 	location.reload(); 
 }
 
+function newRoll(){
+	let diceRoll = Math.floor(Math.random() * 5) + 1;
+	return diceRoll;
+}
+
 function askQuestion(){ //Asking a question and responding to it are different functions for notice. 
-	let consoleDisplay = question[questionCounter][randomQuestion][0];
+	let consoleDisplay = question[questionCounter][randomQuestion][0]; //Google Console says there is a problem here
 	questionDisplay.innerText = consoleDisplay
 	console.log(questionCounter);
 	console.log(randomQuestion);
@@ -72,10 +88,10 @@ function askQuestion(){ //Asking a question and responding to it are different f
 function respondQuestion(){ //Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
-	let answer = question[questionCounter][randomQuestion][1];
+	let answer = question[questionCounter][randomQuestion][1]; //Google Console says there is a problem here (Most likely, if there is an error at line 78:64, there is most likely one here too).
 	console.log(answer);
 	if(response == answer){
-		cashCounter = cashValue[questionCounter]
+		cashCounter = cashValue[questionCounter];
 		switch(cashCounter){ //To check if the cashCounter value has aligned with the saveCash benchmarks listed in switch
 		case 1000:
 			saveCash = 1000
@@ -89,6 +105,7 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 	}
 		questionDisplay.innerText = "Correct for $"+cashCounter+" dollars";
 		questionCounter++
+		randomQuestion = newRoll();
 	}
 
 	else {
@@ -97,6 +114,9 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 }
 
 
-function nextQuestion(){
-
+function nextQuestion(){ //Function is to loop through all of the questions in "questions" array. 
+	for(var i = questionCounter; i < totalQuestions; i++){
+		askQuestion();
+		respondQuestion();
+	}
 }
