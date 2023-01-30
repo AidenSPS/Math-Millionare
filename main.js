@@ -43,7 +43,9 @@ var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
 var questionDisplay = document.getElementById("questionDisplay");
 var nextButton = document.getElementById("next")
-
+var submitButton = document.getElementById("submit");
+var nextButton = document.getElementById("next");
+var answerBox = document.getElementById("answer");
 
 //Functions and Local variables
 
@@ -72,48 +74,50 @@ function noPlay(){
 }
 
 function newRoll(){
-	let diceRoll = Math.floor(Math.random() * 5) + 1;
+	let diceRoll = Math.floor(Math.random() * 5);
 	return diceRoll;
 }
 
 function askQuestion(){ //Asking a question and responding to it are different functions for notice. 
-	let consoleDisplay = question[questionCounter][randomQuestion][0]; //Google Console says there is a problem here
+	let consoleDisplay = question[questionCounter][randomQuestion]?.[0]; //Google Console says there is a problem here
 	questionDisplay.innerText = consoleDisplay
 	console.log(questionCounter);
 	console.log(randomQuestion);
-	console.log(consoleDisplay);
 }
 
 
 function respondQuestion(){ //Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
-	let answer = question[questionCounter][randomQuestion][1]; //Google Console says there is a problem here (Most likely, if there is an error at line 78:64, there is most likely one here too).
+	let answer = question[questionCounter][randomQuestion]?.[1]; //Google Console says there is a problem here (Most likely, if there is an error at line 78:64, there is most likely one here too).
 	console.log(answer);
 	if(response == answer){
+		cashBenchmark();
 		cashCounter = cashValue[questionCounter];
-		switch(cashCounter){ //To check if the cashCounter value has aligned with the saveCash benchmarks listed in switch
-		case 1000:
-			saveCash = 1000
-		case 32000:
-			saveCash = 32000
-		case 64000:
-			saveCash = 64000
-		default:
-			saveCash = 0;
-			break;
-	}
 		questionDisplay.innerText = "Correct for $"+cashCounter+" dollars";
 		questionCounter++
 		randomQuestion = newRoll();
 	}
 
 	else {
-		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but we have benchmarked your cash at... $"+saveCash;
+		cashBenchmark();
+		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but we have benchmarked your cash at... $"+saveCash+". If you would like to play again, please refresh the page";
+		submitButton.remove();
+		nextButton.remove();
 	}
 }
 
-
-function nextQuestion(){ //Function is to loop through all of the questions in "questions" array over a period of time.  
-	
+function cashBenchmark(){
+	if(cashCounter == 1000){
+		saveCash == 1000;
+	}
+	if(cashCounter == 32000){
+		saveCash == 32000
+	}
+	if(cashCounter == 64000){
+		saveCash == 64000
+	}
+	if(cashCounter == 1000000){
+		saveCash == 1000000
+	}
 }
