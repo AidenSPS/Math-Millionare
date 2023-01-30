@@ -59,7 +59,7 @@ function yesPlay(){
 	submitButton.innerText = "Submit Answer";
 	nextQuestion.innerText = "Next Question";
 	submitButton.setAttribute('onClick','respondQuestion()');
-	nextQuestion.setAttribute('onClick','nextQuestion()');
+	nextQuestion.setAttribute('onClick','askQuestion()');
 	document.body.appendChild(answerBox);
 	document.body.appendChild(submitButton);
 	document.body.appendChild(nextQuestion);
@@ -114,9 +114,6 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 }
 
 
-function nextQuestion(){ //Function is to loop through all of the questions in "questions" array. 
-	for(var i = questionCounter; i < totalQuestions; i++){
-		askQuestion();
-		respondQuestion();
-	}
+function nextQuestion(){ //Function is to loop through all of the questions in "questions" array over a period of time.  
+	
 }
