@@ -37,6 +37,7 @@ var cashValue = [100,200,500,1000,2000,4000,8000,32000,64000,125000,250000,50000
 var saveCash = 0; //Cash save benchmark, labled as a psuedo high score. 
 var diceFlag = false;
 var randomQuestion = newRoll();
+var loseFlag = false;
 
 //DOM variables 
 var yesButton = document.getElementById("yes");
@@ -89,25 +90,29 @@ function askQuestion(){ //Asking a question and responding to it are different f
 function respondQuestion(){ //Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
-	let answer = question[questionCounter][randomQuestion]?.[1]; //Google Console says there is a problem here (Most likely, if there is an error at line 78:64, there is most likely one here too).
+	let answer = question[questionCounter][randomQuestion]?.[1];
 	console.log(answer);
 	if(response == answer){
 		cashBenchmark();
 		cashCounter = cashValue[questionCounter];
 		questionDisplay.innerText = "Correct for $"+cashCounter+" dollars";
 		questionCounter++
+		console.log("Cash Saved is: "+saveCash);
 		randomQuestion = newRoll();
 	}
+	if (response != answer){
+		loseFlag = true;
+	}
 
-	else {
+	if (loseFlag == true){
 		cashBenchmark();
 		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but we have benchmarked your cash at... $"+saveCash+". If you would like to play again, please refresh the page";
-		submitButton.remove();
-		nextButton.remove();
+		submitButton.clear();
+		nextButton.clear();
 	}
 }
 
-function cashBenchmark(cashCounter){
+function cashBenchmark(cashCounter){ //cashBenchmark isn't changing the values of saveCash. Therefore the string becomes broken when answer is wrong
 	if(cashCounter == 1000){
 		saveCash == 1000;
 	}
