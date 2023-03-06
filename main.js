@@ -38,6 +38,7 @@ var saveCash = 0; //Cash save benchmark, labled as a psuedo high score.
 var diceFlag = false;
 var randomQuestion = newRoll();
 var loseFlag = false;
+var numberDisplay = 1;
 
 //DOM variables 
 var yesButton = document.getElementById("yes");
@@ -47,51 +48,77 @@ var nextButton = document.getElementById("next")
 var submitButton = document.getElementById("submit");
 var nextButton = document.getElementById("next");
 var answerBox = document.getElementById("answer");
+var gradeLevel = document.getElementById("gradeLevel");
+var homeTitle = document.getElementById("homeTitle");
+var homeDescribe = document.getElementById("homeDescribe")
 
 //Functions and Local variables
 
 function yesPlay(){
+	//Removing Title Buttons and Home Page Elements
 	noButton.remove();
 	yesButton.remove();
+	homeTitle.remove();
+	homeDescribe.remove();
+
+	//Defining new HTMLObjects that are appended within the newly cleared space
 	let answerBox = document.createElement("input");
 	let submitButton = document.createElement("button");
 	let nextQuestion = document.createElement("button");
+
+	//Setting the attributes to the new elements
 	nextQuestion.setAttribute("id","next");
 	answerBox.setAttribute("id","answer");
-	submitButton.setAttribute("id",'submit')
-	submitButton.innerText = "Submit Answer";
-	nextQuestion.innerText = "Next Question";
+	submitButton.setAttribute("id",'submit');
 	submitButton.setAttribute('onClick','respondQuestion()');
 	nextQuestion.setAttribute('onClick','askQuestion()');
+
+	//Setting Text onto the buttons
+	submitButton.innerText = "Submit Answer";
+	nextQuestion.innerText = "Next Question";
+
+	//Setting Question Display
+	gradeLevel.innerText = "Question "+numberDisplay+":";
+
+	//Appending new elements to the primary body
 	document.body.appendChild(answerBox);
 	document.body.appendChild(submitButton);
 	document.body.appendChild(nextQuestion);
+
+	//Computer Randomly asks a quesetion from askQuestion()
 	askQuestion();
 }
 
 
 function noPlay(){
+	//Reloads the page, possible implementation later on in life. 
 	location.reload(); 
 }
 
 function newRoll(){
+	//defines a variable named "diceRoll". Is a floored integer between 0 and 4 and is returned to give the function a value
 	let diceRoll = Math.floor(Math.random() * 5);
 	return diceRoll;
 }
 
-function askQuestion(){ //Asking a question and responding to it are different functions for notice. 
-	let consoleDisplay = question[questionCounter][randomQuestion]?.[0]; //Google Console says there is a problem here
+function askQuestion(){
+	//defines a local variable "consoleDisplay" and defines it as a random question within the primary "question" array. 
+	//Takes "questionCounter to define what grade level to take from. 
+	//Then calls upon a random question from that array. 
+	//Then displays the question string from the question/answer array"
+	let consoleDisplay = question[questionCounter][randomQuestion]?.[0];
 	questionDisplay.innerText = consoleDisplay
-	console.log(questionCounter);
-	console.log(randomQuestion);
+	console.log(questionCounter); //Test, remove when finished
+	console.log(randomQuestion); //Test, remove when finished
 }
 
 
-function respondQuestion(){ //Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
+function respondQuestion(){ 
+	//Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
 	let answer = question[questionCounter][randomQuestion]?.[1];
-	console.log(answer);
+	console.log(answer); //Test, remove when finished
 	if(response == answer){
 		cashBenchmark();
 		cashCounter = cashValue[questionCounter];
@@ -113,16 +140,7 @@ function respondQuestion(){ //Compares string values of 'answerBox' and compares
 }
 
 function cashBenchmark(cashCounter){ //cashBenchmark isn't changing the values of saveCash. Therefore the string becomes broken when answer is wrong
-	if(cashCounter == 1000){
-		saveCash == 1000;
-	}
-	if(cashCounter == 32000){
-		saveCash == 32000
-	}
-	if(cashCounter == 64000){
-		saveCash == 64000
-	}
-	if(cashCounter == 1000000){
-		saveCash == 1000000
+	if(loseFlag == false){
+		
 	}
 }
