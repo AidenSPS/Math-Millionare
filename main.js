@@ -54,7 +54,7 @@ var homeDescribe = document.getElementById("homeDescribe")
 
 //Functions and Local variables
 
-function yesPlay(){
+function yesPlay(){ //WORKS + REFORMATTED
 	//Removing Title Buttons and Home Page Elements
 	noButton.remove();
 	yesButton.remove();
@@ -90,18 +90,18 @@ function yesPlay(){
 }
 
 
-function noPlay(){
-	//Reloads the page, possible implementation later on in life. 
+function noPlay(){ //WORKS + REFORMATTED
+	//Reloads the page, implement next project here  
 	location.reload(); 
 }
 
-function newRoll(){
+function newRoll(){ //WORKS + REFORMATTED
 	//defines a variable named "diceRoll". Is a floored integer between 0 and 4 and is returned to give the function a value
 	let diceRoll = Math.floor(Math.random() * 5);
 	return diceRoll;
 }
 
-function askQuestion(){
+function askQuestion(){ //WORKS + REFORMATTED
 	//defines a local variable "consoleDisplay" and defines it as a random question within the primary "question" array. 
 	//Takes "questionCounter to define what grade level to take from. 
 	//Then calls upon a random question from that array. 
@@ -113,34 +113,42 @@ function askQuestion(){
 }
 
 
-function respondQuestion(){ 
+function respondQuestion(){ //WORKING + REFORMATTED
 	//Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
+
+	//Variables to set answers, get the response and to set variable to user response
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
 	let answer = question[questionCounter][randomQuestion]?.[1];
 	console.log(answer); //Test, remove when finished
+
+	//If you get the right answer, run the code below
 	if(response == answer){
-		cashBenchmark();
+		console.log("Current Cash Value: "+cashCounter+" dollars"); //Test, remove when finished
+		console.log("Cash Saved: "+saveCash); //Test, remove when finished
+		console.log(loseFlag); //Test, remove when finished
+
+		//Add one to numberDisplay
+		numberDisplay++;
+
+		//Set cashCounter to the questionValue
 		cashCounter = cashValue[questionCounter];
-		questionDisplay.innerText = "Correct for $"+cashCounter+" dollars";
-		questionCounter++
-		console.log("Cash Saved is: "+saveCash);
+
+		//Set the string to equal correct
+		questionDisplay.innerText = "Correct: Your current cash prize is for $"+cashCounter+" dollars";
+
+		//Add one to questionCounter
+		questionCounter++;
+
+		//Roll a new question. Repeat until either win OR loseFlag is true. 
 		randomQuestion = newRoll();
 	}
-	if (response != answer){
+	else{ //Otherwise, trigger the loseFlag and run the next condition below
 		loseFlag = true;
 	}
 
+	//If the answer is not correct, set loseFlag to true, set questionDisplay text to string, remove submit button and next question button. Adds new game button (later implementation A 0.8)
 	if (loseFlag == true){
-		cashBenchmark();
 		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but we have benchmarked your cash at... $"+saveCash+". If you would like to play again, please refresh the page";
-		submitButton.clear();
-		nextButton.clear();
-	}
-}
-
-function cashBenchmark(cashCounter){ //cashBenchmark isn't changing the values of saveCash. Therefore the string becomes broken when answer is wrong
-	if(loseFlag == false){
-		
 	}
 }
