@@ -6,3 +6,7 @@ so the question array's format is as such{
 	question(This string is the acutal questionArray with stores the questionString and the answer to the question. This is randomized between integers 0 <= x <= 4). --> 
 	questionOrAnswer (if this value is 0, this will display the question, if this value is 1, this value will display the answer to said question);
 }
+
+Coding Problems left:
+Buttons removal and newGame button
+recalibrating the math behind saveCash();
