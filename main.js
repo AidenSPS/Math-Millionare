@@ -81,7 +81,7 @@ function askQuestion(){ //WORKS + REFORMATTED
 }
 
 
-function respondQuestion(){ //WORKING + REFORMATTED
+function respondQuestion(){ //WORKS + REFORMATTED
 	//Compares string values of 'answerBox' and compares it to the answer item of the array in consoleDisplay
 
 	//Variables to set answers, get the response and to set variable to user response
@@ -104,6 +104,7 @@ function respondQuestion(){ //WORKING + REFORMATTED
 		//Add one to questionCounter
 		questionCounter++;
 
+		console.log("Current Saved Cash: "+saveCash());
 		//Roll a new question. Repeat until either win OR loseFlag is true. 
 		randomQuestion = newRoll();
 	}
@@ -117,21 +118,66 @@ function saveCash(){
 	let cashSaves = [0,1000,4000,64000,1000000];
 	let cashmark = 0;
 	if(loseFlag == true){
-		if(questionCounter == 0 || 1 || 2){
-			cashmark = 0;
-		}
-		if(questionCounter == 3 || 4){
-			cashmark = 1000;
-		}
-		if(questionCounter == 5 || 6 || 7){
-			cashmark = 4000;
-		}
-		if(questionCounter == 8 || 9 || 10 || 11){
-			cashmark = 64000;
-		}
-		if(questionCounter == 13){
-			cashmark = 10000000
+		switch(cashCounter /* this variable is a test, i dont actually know what to put here */){
+			case 0:{
+				cashmark = 0;
+				return cashmark;
+			}
+			case 100:{
+				cashmark = 0;
+				return cashmark;
+			}
+			case 200:{
+				cashmark = 0;
+				return cashmark;
+			}
+			case 500:{
+				cashmark = 0;
+				return cashmark;
+			}
+			case 1000:{
+				cashmark = 1000;
+				return cashmark;
+			}
+			case 2000:{
+				cashmark = 1000;
+				return cashmark;
+			}
+			case 4000:{
+				cashmark = 4000;
+				return cashmark;
+			}
+			case 8000:{
+				cashmark = 4000;
+				return cashmark;
+			}
+			case 32000:{
+				cashmark = 4000;
+				return cashmark;
+			}
+			case 64000:{
+				cashmark = 64000;
+				return cashmark;
+			}
+			case 125000:{
+				cashmark = 64000;
+				return cashmark;
+			}
+			case 250000:{
+				cashmark = 64000;
+				return cashmark;
+			}
+			case 500000:{
+				cashmark = 64000;
+				return cashmark;
+			}
+			case 10000000:{
+				cashmark = 10000000;
+				return cashmark;
+			}
+			default:{
+				console.log("Error in saveCash(). Fix please");
+			}
 		}
 	}
-	return cashmark;
 }
