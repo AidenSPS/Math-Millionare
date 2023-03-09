@@ -1,0 +1,30 @@
+Question Array Layout
+
+so the question array's format is as such{
+	question --> 
+	gradeArrays --> 
+	question(This string is the acutal questionArray with stores the questionString and the answer to the question. This is randomized between integers 0 <= x <= 4). --> 
+	questionOrAnswer (if this value is 0, this will display the question, if this value is 1, this value will display the answer to said question);
+}
+
+Coding Problems left:
+Buttons removal and newGame button
+recalibrating the math behind saveCash();
+
+
+
+if(questionCounter == 0 || 1 || 2){ //VERSION 1
+			cashmark = 0;
+		}
+		if(questionCounter == 3 || 4){
+			cashmark = 1000;
+		}
+		if(questionCounter == 5 || 6 || 7){
+			cashmark = 4000;
+		}
+		if(questionCounter == 8 || 9 || 10 || 11){
+			cashmark = 64000;
+		}
+		if(questionCounter == 13){
+			cashmark = 10000000
+		}
