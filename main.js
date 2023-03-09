@@ -76,8 +76,6 @@ function askQuestion(){ //WORKS + REFORMATTED
 	//Then displays the question string from the question/answer array"
 	let consoleDisplay = question[questionCounter][randomQuestion]?.[0];
 	questionDisplay.innerText = consoleDisplay
-	console.log(questionCounter); //Test, remove when finished
-	console.log(randomQuestion); //Test, remove when finished
 }
 
 
@@ -88,37 +86,41 @@ function respondQuestion(){ //WORKS + REFORMATTED
 	let answerBox = document.getElementById("answer");
 	let response = answerBox.value;
 	let answer = question[questionCounter][randomQuestion]?.[1];
-	console.log(answer); //Test, remove when finished
 
 	//If you get the right answer, run the code below
 	if(response == answer){
 		//Add one to numberDisplay
 		numberDisplay++;
 
+		console.log("Current Number Should be Displayed: "+numberDisplay);
 		//Set cashCounter to the questionValue
 		cashCounter = cashValue[questionCounter];
 
 		//Set the string to equal correct
 		questionDisplay.innerText = "Correct: Your current cash prize is for $"+cashCounter+" dollars";
 
+		if(saveCash() == 1000000){
+			questionDisplay.innerText = "CONGRADULATIONS!!!! YOU HAVE JUST WON ONE MILLION DOLLARS! To play again, please refresh the page. If you would like to play something else, check out my page on Github.com www.github.com/AidenSPS. There is more to come.";
+		}
+
 		//Add one to questionCounter
 		questionCounter++;
 
-		console.log("Current Saved Cash: "+saveCash());
 		//Roll a new question. Repeat until either win OR loseFlag is true. 
 		randomQuestion = newRoll();
 	}
+
 	else{ //Otherwise, trigger the loseFlag and run the next condition below
 		loseFlag = true;
-		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but we have benchmarked your cash at... $"+saveCash()+". If you would like to play again, please refresh the page";
+		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but you have reached a cash savepoint worth... $"+saveCash()+". If you would like to play again, please refresh the page";
 	}
 }
 
-function saveCash(){
+function saveCash(){ //WORKING + FORMATTED
 	let cashSaves = [0,1000,4000,64000,1000000];
 	let cashmark = 0;
 	if(loseFlag == true){
-		switch(cashCounter /* this variable is a test, i dont actually know what to put here */){
+		switch(cashCounter){
 			case 0:{
 				cashmark = 0;
 				return cashmark;
