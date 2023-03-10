@@ -76,6 +76,9 @@ function askQuestion(){ //WORKS + REFORMATTED
 	//Then displays the question string from the question/answer array"
 	let consoleDisplay = question[questionCounter][randomQuestion]?.[0];
 	questionDisplay.innerText = consoleDisplay
+
+	//Change the "Question x" Display on gradeLevel
+	gradeLevel.innerText = "Question "+numberDisplay;
 }
 
 
@@ -91,8 +94,8 @@ function respondQuestion(){ //WORKS + REFORMATTED
 	if(response == answer){
 		//Add one to numberDisplay
 		numberDisplay++;
-
 		console.log("Current Number Should be Displayed: "+numberDisplay);
+
 		//Set cashCounter to the questionValue
 		cashCounter = cashValue[questionCounter];
 
