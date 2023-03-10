@@ -13,13 +13,15 @@ var numberDisplay = 1;
 var yesButton = document.getElementById("yes");
 var noButton = document.getElementById("no");
 var questionDisplay = document.getElementById("questionDisplay");
-var nextButton = document.getElementById("next")
+var nextButton = document.getElementById("next");
 var submitButton = document.getElementById("submit");
 var nextButton = document.getElementById("next");
 var answerBox = document.getElementById("answer");
 var gradeLevel = document.getElementById("gradeLevel");
 var homeTitle = document.getElementById("homeTitle");
-var homeDescribe = document.getElementById("homeDescribe")
+var homeDescribe = document.getElementById("homeDescribe");
+var questionValue = document.getElementById("questionValue");
+var playerCash = document.getElementById("playerCash");
 
 //Functions and Local variables
 function yesPlay(){ //WORKS + REFORMATTED
@@ -77,8 +79,10 @@ function askQuestion(){ //WORKS + REFORMATTED
 	let consoleDisplay = question[questionCounter][randomQuestion]?.[0];
 	questionDisplay.innerText = consoleDisplay
 
-	//Change the "Question x" Display on gradeLevel
+	//Changing texts of certain variables. 
 	gradeLevel.innerText = "Question "+numberDisplay;
+	questionValue.innerText = "Current Question Value: "+cashValue[questionCounter];
+	playerCash.innerText = "Your Score: "+cashCounter;
 }
 
 
@@ -94,7 +98,6 @@ function respondQuestion(){ //WORKS + REFORMATTED
 	if(response == answer){
 		//Add one to numberDisplay
 		numberDisplay++;
-		console.log("Current Number Should be Displayed: "+numberDisplay);
 
 		//Set cashCounter to the questionValue
 		cashCounter = cashValue[questionCounter];
@@ -111,6 +114,10 @@ function respondQuestion(){ //WORKS + REFORMATTED
 
 		//Roll a new question. Repeat until either win OR loseFlag is true. 
 		randomQuestion = newRoll();
+
+		questionValue.innerText = "Current Question Value: "+cashCounter;
+
+		playerCash.innerText = "Your Score: "+cashCounter;
 	}
 
 	else{ //Otherwise, trigger the loseFlag and run the next condition below
