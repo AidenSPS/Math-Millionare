@@ -122,7 +122,8 @@ function respondQuestion(){ //WORKS + REFORMATTED
 
 	else{ //Otherwise, trigger the loseFlag and run the next condition below
 		loseFlag = true;
-		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but you have reached a cash savepoint worth... $"+saveCash()+". If you would like to play again, please refresh the page";
+		questionDisplay.innerText = "Im sorry, that answer is incorrect, you have lost all of you money, but you have reached a cash savepoint worth... $"+saveCash()+".";
+		gameOver();
 	}
 }
 
@@ -192,4 +193,10 @@ function saveCash(){ //WORKING + FORMATTED
 			}
 		}
 	}
+}
+
+function gameOver(){ //Runs when the game is over. Removes buttons, displays string, asks for new game, if not, then sends them to another game (working on another one, probably FF1 Replica)
+	submitButton.remove();
+	nextQuestion.remove();
+
 }

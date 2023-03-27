@@ -1,4 +1,4 @@
-What do I want to add as a CSS/HTML Modifiers to make the game look prettier?
+What do I want to add as a CSS/HTML Modifiers to make the game look nicer?
 
 -Millionare Hotseat (Where contestants answer the questions; The physical space)
 
@@ -10,6 +10,14 @@ Hover? Will test within the Alpha (Will have in alpha, but based on population a
 
 Question and Value display? (Might have, might not).
 
+DUE NOTE: That the buttons are not being removed. Make sure they are by the time you launch this to people. 
 
+
+
+
+
+later string: alert("Thank you for playing. Please visit \n https://airtable.com/shrlQXzwOIF5ugCk0 \n if you wish to submit feedback. If you would like to keep playing, please refresh the page. If you would like to see other games, visit my github at github.com/AidenSPS.");
+
+Post Launch Updates: 
 
 High Score system? Might be based on a database. Complex?
